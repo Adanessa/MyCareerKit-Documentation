@@ -1,5 +1,25 @@
 # MyCareerKit v2
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-Windows-0078D6?style=flat-square&logo=windows&logoColor=white" alt="Windows">
+  <img src="https://img.shields.io/badge/Python-3.14-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/PySide6-6.6+-41CD52?style=flat-square&logo=qt&logoColor=white" alt="PySide6">
+  <img src="https://img.shields.io/badge/LLM-Multi--Backend-8A2BE2?style=flat-square" alt="LLM">
+  <img src="https://img.shields.io/badge/PyInstaller-Bundled-8A2BE2?style=flat-square&logo=pyinstaller&logoColor=white" alt="PyInstaller">
+  <img src="https://img.shields.io/badge/Playwright-PDF-2EAD33?style=flat-square&logo=playwright&logoColor=white" alt="Playwright">
+  <img src="https://img.shields.io/badge/pygame-Audio-1D8348?style=flat-square&logo=pygame&logoColor=white" alt="pygame">
+</p>
+
+<p align="center">
+<img src="https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=claude&logoColor=white">
+<img src="https://img.shields.io/badge/ollama-%23000000.svg?style=for-the-badge&logo=ollama&logoColor=white">
+<img src="https://img.shields.io/badge/DeepSeek-536af5?style=for-the-badge&logoColor=white">
+</p>
+
+<p align="center">
+  <img src="assets/images/dashboard_dark.png" alt="MyCareerKit Dashboard" width="800">
+</p>
+
 A desktop job-hunt application for the Swedish market. Built with PySide6 and Python. Talks to multiple LLM backends to generate tailored CVs and cover letters. Has a themed AI assistant with a full persona and lorebook system. Ships with an original AI-produced soundtrack. Made by one person.
 
 ---
@@ -264,7 +284,7 @@ CLOUD_PROVIDERS = {
 
 | Dark | Light |
 |---|---|
-| ![CV Generator Dark](https://i.imgur.com/m0aA1bj.png) | ![CV Generator Light](https://i.imgur.com/n5wksyc.png) |
+| ![CV Generator Dark](./assets/images/cv_gen_dark.png) | ![CV Generator Light](./assets/images/cover_letter_light.png) |
 
 The CV is generated as a **complete self-contained HTML file** with all CSS embedded. No Jinja2. No templates. The LLM produces the entire document from a structured prompt.
 
@@ -298,7 +318,7 @@ PDF export uses Playwright (`pdf_converter.py`) to headlessly render the HTML to
 
 | Dark | Light |
 |---|---|
-| ![CV Letter Generator Dark](https://i.imgur.com/mrHyu2m.png) | ![Cover Letter Generator Light](https://i.imgur.com/PwPbMAZ.png) |
+| ![CV Letter Generator Dark](./assets/images/cover_letter_dark.png) | ![Cover Letter Generator Light](./assets/images/cover_letter_light.png) |
 
 `src/services/llm/prompts/cover_letter.py` + `src/ui/windows/cover_letter_window.py`
 
@@ -314,7 +334,7 @@ Generated letters are saved as `.txt` files in the profile's `letters/` folder a
 
 | Dark | Light |
 |---|---|
-| ![Job Search Dark](https://i.imgur.com/9rhVEPz.png) | ![Job Search Light](https://imgur.com/YX8vlAN.png) |
+| ![Job Search Dark](./assets/images/job_search_dark.png) | ![Job Search Light](./assets/images/job_search_light.png) |
 
 `src/services/job_service.py`
 
@@ -339,7 +359,7 @@ Saved jobs are stored in `saved_jobs.json` per profile and are available as a ta
 
 | Dark | Light |
 |---|---|
-| ![Job Details Dark](https://i.imgur.com/mnCYrlO.png) | ![Job Details Light](https://i.imgur.com/KDPfIJJ.png) |
+| ![Job Details Dark](./assets/images/job_details_dark.png) | ![Job Details Light](./assets/images/job_details_light.png) |
 
 **`JobDetailsWindow`** (`src/ui/windows/job_details_window.py`) opens as a separate `Qt.WindowType.Window` when a card is clicked. It is composed of three internal widgets:
  
@@ -354,7 +374,7 @@ The scrollable body between header and action bar renders contact info (if prese
 
 | Dark | Light |
 |---|---|
-| ![Photo Toolkit Dark](https://imgur.com/FA3G8R1.png) | ![Job Details Light](https://imgur.com/XnH1RgD.png) |
+| ![Photo Toolkit Dark](./assets/images/photo_toolkit_dark.png) | ![Job Details Light](./assets/images/photo_toolkit_light.png) |
 
 `src/services/photo_workers.py` + `src/ui/windows/photo_toolkit_window.py`
 
@@ -675,3 +695,22 @@ Connect to `ThemeManager.signals.theme_changed` in `__init__`, store the theme, 
 **`rembg`** — it has a heavy dependency chain and slow first-run model download. It is intentionally not imported at module level. `RemoveBGWorker.run()` imports it inside the thread.
 
 **The `temp_files_delete_when_you_got_balls/` folder** contains an older monolithic `llm_service.py` that was the precursor to the current split client/worker architecture. It exists for reference and is not imported anywhere.
+```
+MyCareerKit-Documentation
+├─ assets
+│  └─ images
+│     ├─ cover_letter_dark.png
+│     ├─ cover_letter_light.png
+│     ├─ cv_gen.png
+│     ├─ cv_gen_dark.png
+│     ├─ cv_gen_light.png
+│     ├─ dashboard.png
+│     ├─ job_details_dark.png
+│     ├─ job_details_light.png
+│     ├─ job_search_dark.png
+│     ├─ job_search_light.png
+│     ├─ photo_toolkit_dark.png
+│     └─ photo_toolkit_light.png
+└─ README.md
+
+```
