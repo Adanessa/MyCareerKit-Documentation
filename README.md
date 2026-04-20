@@ -17,9 +17,10 @@
 </p>
 
 <p align="center">
-  <img src="assets/images/dashboard_dark.png" alt="MyCareerKit Dashboard" width="800">
+  <a href="https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/dashboard_dark.png">
+    <img src="assets/images/dashboard_dark.png" alt="MyCareerKit Dashboard" width="800">
+  </a>
 </p>
-
 A desktop job-hunt application for the Swedish market. Built with PySide6 and Python. Talks to multiple LLM backends to generate tailored CVs and cover letters. Has a themed AI assistant with a full persona and lorebook system. Ships with an original AI-produced soundtrack. Made by one person.
 
 ---
@@ -284,7 +285,7 @@ CLOUD_PROVIDERS = {
 
 | Dark | Light |
 |---|---|
-| ![CV Generator Dark](./assets/images/cv_gen_dark.png) | ![CV Generator Light](./assets/images/cover_letter_light.png) |
+| [![CV Generator Dark](./assets/images/cv_gen_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/cv_gen_dark.png) | [![CV Generator Light](./assets//images/cv_gen_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/cv_gen_light.png) |
 
 The CV is generated as a **complete self-contained HTML file** with all CSS embedded. No Jinja2. No templates. The LLM produces the entire document from a structured prompt.
 
@@ -318,7 +319,7 @@ PDF export uses Playwright (`pdf_converter.py`) to headlessly render the HTML to
 
 | Dark | Light |
 |---|---|
-| ![CV Letter Generator Dark](./assets/images/cover_letter_dark.png) | ![Cover Letter Generator Light](./assets/images/cover_letter_light.png) |
+| [![CV Letter Generator Dark](./assets/images/cover_letter_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/cover_letter_dark.png) | [![Cover Letter Generator Light](./assets/images/cover_letter_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/cover_letter_light.png) |
 
 `src/services/llm/prompts/cover_letter.py` + `src/ui/windows/cover_letter_window.py`
 
@@ -334,7 +335,7 @@ Generated letters are saved as `.txt` files in the profile's `letters/` folder a
 
 | Dark | Light |
 |---|---|
-| ![Job Search Dark](./assets/images/job_search_dark.png) | ![Job Search Light](./assets/images/job_search_light.png) |
+| [![Job Search Dark](./assets/images/job_search_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/job_search_dark.png) | [![Job Search Light](./assets/images/job_search_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/job_search_light.png) |
 
 `src/services/job_service.py`
 
@@ -359,7 +360,7 @@ Saved jobs are stored in `saved_jobs.json` per profile and are available as a ta
 
 | Dark | Light |
 |---|---|
-| ![Job Details Dark](./assets/images/job_details_dark.png) | ![Job Details Light](./assets/images/job_details_light.png) |
+| [![Job Details Dark](./assets/images/job_details_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/job_details_dark.png) | [![Job Details Light](./assets/images/job_details_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/job_details_light.png) |
 
 **`JobDetailsWindow`** (`src/ui/windows/job_details_window.py`) opens as a separate `Qt.WindowType.Window` when a card is clicked. It is composed of three internal widgets:
  
@@ -374,7 +375,7 @@ The scrollable body between header and action bar renders contact info (if prese
 
 | Dark | Light |
 |---|---|
-| ![Photo Toolkit Dark](./assets/images/photo_toolkit_dark.png) | ![Job Details Light](./assets/images/photo_toolkit_light.png) |
+| [![Photo Toolkit Dark](./assets/images/photo_toolkit_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/photo_toolkit_dark.png) | [![Job Details Light](./assets/images/photo_toolkit_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/photo_toolkit_dark.png) |
 
 `src/services/photo_workers.py` + `src/ui/windows/photo_toolkit_window.py`
 
@@ -397,6 +398,10 @@ Photo is saved to `profile/photos/` and embedded in CVs as base64.
 ---
 
 ### Queenie — AI Assistant
+
+| Queenie | The Manager |
+|---|---|
+| [![Queenie Persona](./assets/images/queenie_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/queenie_dark.png) | [![The Manager Persona](./assets/images/queenie_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/queenie_light.png) |
 
 `src/ui/widgets/queenie/`
 
@@ -504,6 +509,10 @@ The UI layer (`src/ui/`) follows a component model built on PySide6 with manual 
 ---
 
 ### Dashboard
+
+| Dark | Light |
+|---|---|
+| [![CV Letter Generator Dark](./assets/images/dashboard_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/dashboard_dark.png) | [![Cover Letter Generator Light](./assets/images/dashboard_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/dashboard_light.png) |
 
 The landing page after profile selection. Composed entirely of custom-painted widgets — no standard Qt labels or layout widgets are visible to the user.
  
