@@ -17,9 +17,7 @@
 </p>
 
 <p align="center">
-  <a href="https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/dashboard_dark.png">
-    <img src="assets/images/dashboard_dark.png" alt="MyCareerKit Dashboard" width="800">
-  </a>
+  <img src="assets/images/dashboard_dark.png" alt="MyCareerKit Dashboard" width="800">
 </p>
 A desktop job-hunt application for the Swedish market. Built with PySide6 and Python. Talks to multiple LLM backends to generate tailored CVs and cover letters. Has a themed AI assistant with a full persona and lorebook system. Ships with an original AI-produced soundtrack. Made by one person.
 
@@ -51,6 +49,8 @@ A desktop job-hunt application for the Swedish market. Built with PySide6 and Py
     - [CV Gallery Tab](#cv-gallery-tab)
     - [Letters Tab](#letters-tab)
     - [Photo Tab](#photo-tab)
+  - [Settings Tab](#settings-pages)
+    - [Appearance Tab](#appearance-tab)
 - [Theming](#theming)
 - [Data Storage](#data-storage)
 - [Build & Distribution](#build--distribution)
@@ -285,7 +285,7 @@ CLOUD_PROVIDERS = {
 
 | Dark | Light |
 |---|---|
-| [![CV Generator Dark](./assets/images/cv_gen_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/cv_gen_dark.png) | [![CV Generator Light](./assets//images/cv_gen_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/cv_gen_light.png) |
+| ![CV Generator Dark](./assets/images/cv_gen_dark.png) | ![CV Generator Light](./assets//images/cv_gen_light.png) |
 
 The CV is generated as a **complete self-contained HTML file** with all CSS embedded. No Jinja2. No templates. The LLM produces the entire document from a structured prompt.
 
@@ -319,7 +319,7 @@ PDF export uses Playwright (`pdf_converter.py`) to headlessly render the HTML to
 
 | Dark | Light |
 |---|---|
-| [![CV Letter Generator Dark](./assets/images/cover_letter_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/cover_letter_dark.png) | [![Cover Letter Generator Light](./assets/images/cover_letter_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/cover_letter_light.png) |
+| ![CV Letter Generator Dark](./assets/images/cover_letter_dark.png) | ![Cover Letter Generator Light](./assets/images/cover_letter_light.png) |
 
 `src/services/llm/prompts/cover_letter.py` + `src/ui/windows/cover_letter_window.py`
 
@@ -335,7 +335,7 @@ Generated letters are saved as `.txt` files in the profile's `letters/` folder a
 
 | Dark | Light |
 |---|---|
-| [![Job Search Dark](./assets/images/job_search_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/job_search_dark.png) | [![Job Search Light](./assets/images/job_search_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/job_search_light.png) |
+| ![Job Search Dark](./assets/images/job_search_dark.png) | ![Job Search Light](./assets/images/job_search_light.png)|
 
 `src/services/job_service.py`
 
@@ -360,7 +360,7 @@ Saved jobs are stored in `saved_jobs.json` per profile and are available as a ta
 
 | Dark | Light |
 |---|---|
-| [![Job Details Dark](./assets/images/job_details_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/job_details_dark.png) | [![Job Details Light](./assets/images/job_details_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/job_details_light.png) |
+| ![Job Details Dark](./assets/images/job_details_dark.png) | ![Job Details Light](./assets/images/job_details_light.png) |
 
 **`JobDetailsWindow`** (`src/ui/windows/job_details_window.py`) opens as a separate `Qt.WindowType.Window` when a card is clicked. It is composed of three internal widgets:
  
@@ -375,7 +375,7 @@ The scrollable body between header and action bar renders contact info (if prese
 
 | Dark | Light |
 |---|---|
-| [![Photo Toolkit Dark](./assets/images/photo_toolkit_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/photo_toolkit_dark.png) | [![Job Details Light](./assets/images/photo_toolkit_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/photo_toolkit_dark.png) |
+| ![Photo Toolkit Dark](./assets/images/photo_toolkit_dark.png) | ![Job Details Light](./assets/images/photo_toolkit_light.png)|
 
 `src/services/photo_workers.py` + `src/ui/windows/photo_toolkit_window.py`
 
@@ -401,7 +401,7 @@ Photo is saved to `profile/photos/` and embedded in CVs as base64.
 
 | Queenie | The Manager |
 |---|---|
-| [![Queenie Persona](./assets/images/queenie_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/queenie_dark.png) | [![The Manager Persona](./assets/images/queenie_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/queenie_light.png) |
+| ![Queenie Persona](./assets/images/queenie_dark.png) | ![The Manager Persona](./assets/images/queenie_light.png) |
 
 `src/ui/widgets/queenie/`
 
@@ -512,7 +512,7 @@ The UI layer (`src/ui/`) follows a component model built on PySide6 with manual 
 
 | Dark | Light |
 |---|---|
-| [![CV Letter Generator Dark](./assets/images/dashboard_dark.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/dashboard_dark.png) | [![Cover Letter Generator Light](./assets/images/dashboard_light.png)](https://raw.githubusercontent.com/Adanessa/MyCareerKit-Documentation/main/assets/images/dashboard_light.png) |
+| ![CV Letter Generator Dark](./assets/images/dashboard_dark.png) | ![Cover Letter Generator Light](./assets/images/dashboard_light.png) |
 
 The landing page after profile selection. Composed entirely of custom-painted widgets — no standard Qt labels or layout widgets are visible to the user.
  
@@ -533,30 +533,57 @@ The page background has a subtle `QRadialGradient` glow in the accent color (alp
 Navigation between tabs is handled by `ProfileSubNav` — a custom painted horizontal nav bar, not `QTabWidget`. Each tab owns a specific subset of keys in `profile.json` (declared as `OWN_KEYS`) and handles its own load/save independently via `ProfileManager.merge()`, so tabs don't overwrite each other's data.
  
 #### Contact Tab
+| Dark | Light |
+|---|---|
+| ![Contact Tab Dark](./assets/images/contact_dark.png) | ![Contact Tab Light](./assets//images/contact_light.png) |
 
 Contact Tab (`contact_tab.py`) — owns `name`, `title`, `email`, `phone`, `city`, `website`, `summary`, `photo`. Fields are `StyledLineEdit` and `StyledTextArea` widgets grouped inside `SectionCard` containers. The photo field uses `PhotoUploadWidget` — a drop zone that accepts drag-and-drop or file browser, displays a preview, and on save copies the file into `profile/photos/` storing only the filename in JSON. A `CountLabel` shows character count on the summary field.
 
 #### Experience Tab
 
+| Dark | Light |
+|---|---|
+| ![Experience Tab Dark](./assets/images/experience_dark.png) | ![Experience Tab Light](./assets//images/experience_light.png) |
+
 Experience Tab (`experience_tab.py`) — owns `work`, `education`, `references`. Each section is a `DynamicSection` widget: a custom-painted container that holds a variable number of collapsible `EntryCard` widgets. `DynamicSection` paints its own section title header and an "Add entry" button at the bottom (also painted, not a real button — `mousePressEvent` handles the click). Entries are auto-numbered (#1, #2...). `EntryCard` is a collapsible form card with a field schema (`WORK_FIELDS`, `EDUCATION_FIELDS`, `REFERENCE_FIELDS`) that drives which inputs are rendered. Fields support a painted delete button on hover.
 
 #### Skills Tab
+
+| Dark | Light |
+|---|---|
+| ![Skills Tab Dark](./assets/images/skills_dark.png) | ![Skills Tab Light](./assets//images/skills_light.png) |
 
 Skills Tab (`skills_tab.py`) — owns `skills`, `languages`, `licenses`. Skills and languages use `SkillChipInput` — a chip-based tag input where each chip has a level badge that cycles through 4 levels on click (Beginner → Intermediate → Advanced → Expert for skills, Basic → Conversational → Professional → Native for languages). Level colors come from theme properties `level_1` through `level_4`. A `LevelLegend` widget painted below each input shows the color-to-label mapping. Licenses use a `LicenseGrid` — a fixed grid of toggleable license/certification checkboxes.
 
 #### CV Gallery Tab
 
+| Dark | Light |
+|---|---|
+| ![CV Gallery Tab Dark](./assets/images/cv_gallery_dark.png) | ![CV Gallery Tab Light](./assets//images/cv_gallery_light.png) |
+
 CV Gallery Tab (`cv_gallery_tab.py`) — a responsive grid of `CVCard` widgets, each showing a thumbnail preview of a generated CV. Column count recalculates on resize via a debounced `QTimer` (150ms). Thumbnails are generated by `ThumbnailWorker` (Playwright, background thread) after each CV generation and cached as `.thumb.png` files. Clicking a card opens `CVViewerDialog` showing the full thumbnail. Each card also has a PDF export button that triggers `PdfConvertWorker`. A `FolderButton` in the toolbar opens the `cvs/` folder in the system file explorer. Empty state is a custom-painted `EmptyGalleryState` widget.
 
 #### Letters Tab
+
+| Dark | Light |
+|---|---|
+| ![Letters Tab Dark](./assets/images/letters_dark.png) | ![Letters Tab Light](./assets//images/letters_light.png) |
 
 Letters Tab (`letter_tab.py`) — scrollable list of saved cover letters. Each row shows the letter name, generation date, and a truncated first line as preview. Clicking opens `LetterViewerWindow`. Delete button appears on hover.
 
 #### Saved Jobs Tab
 
+| Dark | Light |
+|---|---|
+| ![Saved Jobs Tab Dark](./assets/images/saved_jobs_dark.png) | ![Saved Jobs Tab Light](./assets//images/saved_jobs_light.png) |
+
 Saved Jobs Tab (`saved_jobs_tab.py`) — mirrors the job search card view but reading from `saved_jobs.json` instead of the API. Has a `SearchBar` for local filtering across saved jobs. Inline unsave (heart toggle) syncs back to disk immediately via `ProfileManager.remove_job()`. Emits `job_selected` signal which `MainWindow` wires to open `JobDetailsWindow`.
 
 #### Photo Tab
+
+| Dark | Light |
+|---|---|
+| ![Photo Tab Dark](./assets/images/photo_gallery_dark.png) | ![Photo Tab Light](./assets//images/photo_gallery_light.png) |
 
 Photo Tab (`photo_tab.py`) — displays the current profile photo and a button to launch `PhotoToolkitWindow`. When `PhotoToolkitWindow` emits `photo_saved`, the tab reloads and updates the preview. Acts as the bridge between the toolkit window and the profile.
  
@@ -565,11 +592,29 @@ Photo Tab (`photo_tab.py`) — displays the current profile photo and a button t
 ### Settings Pages
  
 `src/ui/pages/settings_page.py` + `src/ui/pages/settings_tabs/`
- 
+
+#### Appearance Tab
+
+<p align="center">
+  <img src="assets/images/appearance_tab_dark.png" alt="MyCareerKit Dashboard" width="800">
+</p>
+
 **Appearance Tab** (`appearance_tab.py`) — theme selection via `ThemeRadioGroup`, a custom-painted radio button group. Currently exposes Dark and Light. Selecting a theme calls `ThemeManager.set()` immediately (live switch, no restart) and persists the choice via `QSettings`. The `_save_theme_preference` / `load_saved_theme` functions are the only place `QSettings` is used in the app.
  
+#### API Keys Tab
+
+<p align="center">
+  <img src="assets/images/api_keys_dark.png" alt="MyCareerKit Dashboard" width="800">
+</p>
+
 **API Keys Tab** (`api_keys_tab.py`) — manages `ANTHROPIC_API_KEY` and `DEEPSEEK_API_KEY`. Each key is an `_ApiKeyRow`: a password-masked `StyledLineEdit` with a Show/Hide toggle. On save, keys are written to `BASE_DIR/.env` and reloaded into the process environment with `load_dotenv(override=True)` so changes take effect immediately without restarting. Keys are read from `os.environ` on widget init so the current values pre-populate the fields.
  
+#### Local AI Tab
+
+<p align="center">
+  <img src="assets/images/local_ai_dark.png" alt="MyCareerKit Dashboard" width="800">
+</p>
+
 **Local AI Tab** (`local_ai_tab.py`) — the most complex settings tab. Manages the full Ollama lifecycle:
  
 - A `_StatusDot` (painted colored circle) shows whether the Ollama daemon is running — grey (unknown), green (running), red (not running). Status is checked via `OllamaCheckWorker` on tab open and on a periodic poll.
@@ -577,6 +622,7 @@ Photo Tab (`photo_tab.py`) — displays the current profile photo and a button t
 - A curated list of 5 models (`llama3.2`, `mistral`, `phi3`, `qwen2.5:7b`, `gemma2:2b`) with size and VRAM requirements displayed. Each is a `_ModelRow` with Pull / Delete buttons wired to `OllamaPullWorker` / `OllamaDeleteWorker`.
 - Pull progress is streamed in real time — `OllamaPullWorker` emits `progress(str)` chunks which update a status label as the model downloads layer by layer.
 - Qwen 2.5 7B is specifically noted for strong Swedish language support — relevant given the app's target market.
+
 ---
 
 ## Theming
@@ -639,12 +685,13 @@ Core:
 
 ```
 PySide6                  Qt6 bindings — UI and web engine (no QtMultimedia used)
-pygame                   Audio backend for the media player (mixer only)
+pygame-ce                Audio backend for the media player (mixer only)
 mutagen                  Audio metadata — track duration reading
 requests                 HTTP client for all API calls
 python-dotenv            .env loading
 Pillow                   Image processing throughout
 anthropic                Official Anthropic SDK (streaming)
+psutil                   For Ollama process management
 ```
 
 Photo toolkit:
@@ -704,22 +751,3 @@ Connect to `ThemeManager.signals.theme_changed` in `__init__`, store the theme, 
 **`rembg`** — it has a heavy dependency chain and slow first-run model download. It is intentionally not imported at module level. `RemoveBGWorker.run()` imports it inside the thread.
 
 **The `temp_files_delete_when_you_got_balls/` folder** contains an older monolithic `llm_service.py` that was the precursor to the current split client/worker architecture. It exists for reference and is not imported anywhere.
-```
-MyCareerKit-Documentation
-├─ assets
-│  └─ images
-│     ├─ cover_letter_dark.png
-│     ├─ cover_letter_light.png
-│     ├─ cv_gen.png
-│     ├─ cv_gen_dark.png
-│     ├─ cv_gen_light.png
-│     ├─ dashboard.png
-│     ├─ job_details_dark.png
-│     ├─ job_details_light.png
-│     ├─ job_search_dark.png
-│     ├─ job_search_light.png
-│     ├─ photo_toolkit_dark.png
-│     └─ photo_toolkit_light.png
-└─ README.md
-
-```
